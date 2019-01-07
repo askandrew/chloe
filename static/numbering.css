@@ -1,0 +1,16 @@
+pre{
+    counter-reset: line;
+}
+code{
+    counter-increment: line;
+}
+code::before {
+  content: counter(line);
+  display: inline-block;
+  width: 2.4em; /* Fixed width */
+  border-right: 1px solid #ddd;
+  margin-right: 0.6%;
+  color: #888;
+  -webkit-user-select: none;
+  white-space: nowrap;
+}

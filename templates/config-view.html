@@ -1,0 +1,72 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Squad Config List{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='base.css')}}?v=3">
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='numbering.css')}}?v=3">
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand" style="color: wheat;">
+                    Config Management
+                </li>
+                <li>
+                    <a href="{{ url_for('base') }}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('config_list') }}">Config List</a>
+                </li>
+                <li>
+                    <hr />
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1><a href="#" id="menu-toggle">Config View</a></h1>
+                        <span>Service <b>{{ service }}</b>, owner by <b>{{ squad }}</b> squad  {% if editable %}
+                            <span title="edit this config"><a href="{{ url_for('config_edit', project=service, squad=squad, env=env) }}"><i class="glyphicon glyphicon-edit"></i></a></span>{% endif %}
+                        </span>
+                        <span><pre>{{ service_cfg|safe|replace("{{", "<!")|replace("}}", "!>")  }}</pre></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+{% endblock %}

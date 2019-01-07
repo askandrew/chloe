@@ -1,0 +1,24 @@
+base:
+  key: "xxxxxxx"
+  env: "development"
+sso:
+  url: "xxxxxxx"
+  token: "xxxxxxx"
+  x_api_key: "xxxxxxx"
+bitbucket:
+  auth: "xxxxxxx"
+  globaluser: "xxxxxxx"
+redis:
+  hosts: [
+    {"host": "cluster-xxxxxxx-1.com", "port": "6379"},
+    {"host": "cluster-xxxxxxx-1.com", "port": "6379"}
+  ]
+  prefix: "chloe:"
+mapping: {
+  group_name: {
+    "branch": {"dir": "path_dir", file: "file_name"},
+  },
+  group_name: {
+    "branch": {"dir": "path_dir", file: "file_name"},
+  }
+}
