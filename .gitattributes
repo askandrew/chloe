@@ -1,1 +1,2 @@
-*.py linguist-language=Python
+templates/* linguist-vendored
+static/* linguist-vendored
