@@ -9,7 +9,7 @@ gitdb2==2.0.5
 GitPython==2.1.11
 idna==2.7
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.1.0
 pyaml==18.11.0
 PyYAML==4.2b1
